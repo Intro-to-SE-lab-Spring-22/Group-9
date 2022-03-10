@@ -13,6 +13,12 @@ vishwa patel, Username: vnp39, vnp39, vnp39@msstate.edu
 
 ### Description:
 
+Welcome to Social!
+
+A simple social media website that makes use of timelines.
+
 ### Objectives and Features:
+
+Users, User profiles, Home page, User friends, Post on timeline, Like/dislike system for posts.
 
 Languages and techniques used: php, html, css, sql
