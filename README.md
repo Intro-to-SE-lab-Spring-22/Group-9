@@ -15,4 +15,4 @@ vishwa patel, Username: vnp39, vnp39, vnp39@msstate.edu
 
 ### Objectives and Features:
 
-Languages and techniques TBD
+Languages and techniques used: php, html, css, sql
