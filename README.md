@@ -21,4 +21,5 @@ A simple social media website that makes use of timelines.
 
 Users, User profiles, Home page, User friends, Post on timeline, Like/dislike system for posts.
 
-### Languages and techniques used: php, html, css, sql
+### Languages and techniques used:
+  php, html, css, sql
