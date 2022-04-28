@@ -1,49 +1,26 @@
-<?php
+
+<?php 
 session_start();
 
-	include("connection.php");
-	include("functions.php");
+    include("connection.php");
+    include("functions.php");
 
-	$user_data = check_login($con);
-	
-	
-	
+    $user_data = check_login($con);
 ?>
 
 <html>
 <head>
-	<title>My website</title>
+	<title>My Profile</title>
 </head>
 <body>
 
-	<h1>Welcome to Social!</h1>
+	<a href="logout.php">Logout</a>
+	<h1> <?php echo $user_data['user_name']; ?>'s Profile Page </h1>
+    <h3> User ID: <?php echo $user_data['user_id']; ?> </h3>
+    
+    <br/>
+    <br/>
 
-	<br>
-	Greetings, <?php echo $user_data['user_name']; 
-	?><br>
-
-	<?php
-	$sql = 'SELECT * FROM posts';
-	$result = $con->query($sql);
-	if ($result->num_rows > 0) {
-	  // output data of each row
-	  while($row = $result->fetch_assoc()) {
-		  if ($row["post_public"] == 1) {
-			echo "Post by: " . $row["post_by"]. " Caption: " . $row["post_caption"]. " Posted: " . $row["post_time"]. "<br>";
-		  }
-	  }
-	} else {
-	  echo "0 results";
-	}
-	?>
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	<style type="text/css">
 	
@@ -77,14 +54,12 @@ session_start();
 
 	</style>
 	
-	
 	<div class="navbar">
 		<a href="index.php">Home</a>
 		<a href="create_post.php" >Make Post</a>
 		<a href="profile_page.php">Profile</a>
 		<a href="logout.php">Logout</a>
 	</div>
-	
-	
+
 </body>
 </html>
