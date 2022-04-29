@@ -14,12 +14,25 @@ session_start();
 </head>
 <body>
 
-	<a href="logout.php">Logout</a>
+	
 	<h1> <?php echo $user_data['user_name']; ?>'s Profile Page </h1>
     <h3> User ID: <?php echo $user_data['user_id']; ?> </h3>
     
     <br/>
-    <br/>
+    
+	<?php
+	$userID = $user_data["user_id"];
+	$sql = "SELECT * FROM posts WHERE post_by = ".$userID;
+	$result = $con->query($sql);
+	if ($result->num_rows > 0) {
+	  // output data of each row
+	  while($row = $result->fetch_assoc()) {
+			echo "Post by: " . $row["post_by"]. " Caption: " . $row["post_caption"]. " Posted: " . $row["post_time"]. "<br>";
+	  }
+	} else {
+	  echo "0 results";
+	}
+	?>
 
 	
 	<style type="text/css">
