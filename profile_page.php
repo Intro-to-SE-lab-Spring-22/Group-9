@@ -21,13 +21,12 @@ session_start();
     <br/>
     
 	<?php
-	$userID = $user_data["user_id"];
-	$sql = "SELECT * FROM posts WHERE post_by = ".$userID;
+	$sql = "SELECT * FROM posts WHERE post_by = '".$user_data["user_name"]."'";
 	$result = $con->query($sql);
 	if ($result->num_rows > 0) {
 	  // output data of each row
 	  while($row = $result->fetch_assoc()) {
-			echo "Post by: " . $row["post_by"]. " Caption: " . $row["post_caption"]. " Posted: " . $row["post_time"]. "<br>";
+			echo "<br>Post by: " . $row["post_by"]. "<br> Caption: " . $row["post_caption"]. "<br> Posted: " . $row["post_time"]. "<br>";
 	  }
 	} else {
 	  echo "0 results";
