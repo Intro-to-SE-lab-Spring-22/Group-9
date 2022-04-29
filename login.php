@@ -28,7 +28,8 @@ session_start();
 				}
 			}
 			echo "Incorrect username or password.";
-		}else
+		}
+		else
 		{
 			echo "Incorrect username or password.";
 		}
