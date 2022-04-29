@@ -29,7 +29,7 @@ session_start();
 	  // output data of each row
 	  while($row = $result->fetch_assoc()) {
 		  if ($row["post_public"] == 1) {
-			echo "Post by: " . $row["post_by"]. " Caption: " . $row["post_caption"]. " Posted: " . $row["post_time"]. "<br>";
+			echo "<br>Post by: " . $row["post_by"]. "<br> Caption: " . $row["post_caption"]. "<br> Posted: " . $row["post_time"]. "<br>";
 		  }
 	  }
 	} else {
