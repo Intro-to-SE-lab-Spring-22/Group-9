@@ -29,8 +29,25 @@ session_start();
 	  // output data of each row
 	  while($row = $result->fetch_assoc()) {
 		  if ($row["post_public"] == 1) {
-			echo "<br>Post by: " . $row["post_by"]. "<br> Caption: " . $row["post_caption"]. "<br> Posted: " . $row["post_time"]. "<br>";
+			echo "Post by: " . $row["post_by"]. " Caption: " . $row["post_caption"]. " Posted: " . $row["post_time"]. "<br>";
+			echo"
+				<a href=\"comment.php?id=" . $row["post_id"] . "\">Comment</a></br>
+				";
+			
 		  }
+	  }
+	} else {
+	  echo "0 results";
+	}
+	?>
+
+
+<?php
+	$sql = 'SELECT * FROM comments';
+	$result = $con->query($sql);
+	if ($result->num_rows > 0) {
+	  while($row = $result->fetch_assoc()) {
+		 echo "Comment by: " . $row["user_id"]. " Content: " . $row["content"]. " Posted on: " . $row["post_id"]. "<br>";
 	  }
 	} else {
 	  echo "0 results";
@@ -81,6 +98,7 @@ session_start();
 	<div class="navbar">
 		<a href="index.php">Home</a>
 		<a href="create_post.php" >Make Post</a>
+		<a href="comment.php?id=" . $row["post_id"]>Comment</a>
 		<a href="profile_page.php">Profile</a>
 		<a href="logout.php">Logout</a>
 	</div>
