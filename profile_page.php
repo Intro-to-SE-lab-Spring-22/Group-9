@@ -8,6 +8,30 @@ session_start();
     $user_data = check_login($con);
 ?>
 
+<style>
+.deleteButton {
+	box-shadow:inset 0px 1px 0px 0px #cf866c;
+	background-color:#d0451b;
+	border-radius:3px;
+	border:1px solid #942911;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #854629;
+}
+.deleteButton:hover {
+	background-color:#bc3315;
+}
+.deleteButton:active {
+	position:relative;
+	top:1px;
+}
+</style>
+
 <html>
 <head>
 	<title>My Profile</title>
@@ -27,6 +51,9 @@ session_start();
 	  // output data of each row
 	  while($row = $result->fetch_assoc()) {
 			echo "<br>Post by: " . $row["post_by"]. "<br> Caption: " . $row["post_caption"]. "<br> Posted: " . $row["post_time"]. "<br>";
+			echo "
+			<a href=\"delete_post.php?id=" . $row["post_id"] . "\" class=\"deleteButton\">Delete Post</a></br>
+			"; // Places the "Delete" button on the Profile page so that only a user's own posts may be deleted, not others
 	  }
 	} else {
 	  echo "0 results";
